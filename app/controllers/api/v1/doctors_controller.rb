@@ -1,4 +1,3 @@
 class Api::V1::DoctorsController < ApplicationController
-    def index
-    end
+  def index; end
 end
