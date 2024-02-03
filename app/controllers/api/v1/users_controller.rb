@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationContoller
-    def index
-    end
+class Api::V1::UsersController < ApplicationController
+  def index
+  end
 end
