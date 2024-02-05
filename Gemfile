@@ -49,3 +49,6 @@ group :development do
 end
 
 gem 'devise'
+
+# gem for enagling CORS that is secure data sharing between different server origins
+gem 'rack-cors'
