@@ -17,7 +17,7 @@ class RegistrationsController < ApplicationController
   protected
 
   def user_exists?(email)
-    User.exists?(email:)
+    User.exists?(email: email)
   end
 
   def sign_up_params
