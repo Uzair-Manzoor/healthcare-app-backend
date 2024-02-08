@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_03_092800) do
     t.bigint "doctor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "reason"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
