@@ -1,14 +1,17 @@
 class Api::V1::DoctorsController < ApplicationController
-  before_action :set_doctor_params
+  before_action :set_doctor, only: [:show]
 
   def index
-    @doctor = Doctor.all
-    @doctor.user = current_user
+    @doctors = Doctor.all
+    @doctors.each { |doctor| doctor.user = current_user }
+  end
+
+  def show
+    render json: { doctor: DoctorSerializer.new(@doctor) }
   end
 
   def create
-    puts "current user:#{current_user}"
-    @doctor = Doctor.new(set_doctor_params)
+    @doctor = Doctor.new(doctor_params)
     @doctor.user = current_user
 
     if @doctor.save
@@ -20,7 +23,11 @@ class Api::V1::DoctorsController < ApplicationController
 
   private
 
-  def set_doctor_params
+  def set_doctor
+    @doctor = Doctor.find(params[:id])
+  end
+
+  def doctor_params
     params.require(:doctor).permit(:name, :bio, :specialization, :image_url)
   end
 end
