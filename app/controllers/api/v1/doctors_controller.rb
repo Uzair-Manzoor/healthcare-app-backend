@@ -3,7 +3,7 @@ class Api::V1::DoctorsController < ApplicationController
 
   def index
     @doctors = Doctor.all
-    render json: { doctors: @doctor }, each_serializer: DoctorSerializer, status: :ok
+    render json: { doctors: @doctors }, each_serializer: DoctorSerializer, status: :ok
   end
 
   def show
