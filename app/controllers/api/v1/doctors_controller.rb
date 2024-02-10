@@ -1,9 +1,15 @@
 class Api::V1::DoctorsController < ApplicationController
-  before_action :set_doctor_params
+  before_action :set_doctor_params, only: [:create]
 
   def index
-    @doctor = Doctor.all
+    @doctors = Doctor.all
+    render json: { doctors: @doctor }, each_serializer: DoctorSerializer, status: :ok
+  end
+
+  def show
+    @doctor = Doctor.find(params[:id])
     @doctor.user = current_user
+    render json: { doctor: DoctorSerializer.new(@doctor) }, status: :ok
   end
 
   def create
