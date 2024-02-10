@@ -1,9 +1,10 @@
 class Api::V1::DoctorsController < ApplicationController
   before_action :set_doctor_params, only: [:create]
+  before_action :set_doctor, only: [:destroy]
 
   def index
     @doctors = Doctor.all
-    render json: { doctors: @doctor }, each_serializer: DoctorSerializer, status: :ok
+    render json: { doctors: @doctors }, each_serializer: DoctorSerializer, status: :ok
   end
 
   def show
@@ -24,9 +25,21 @@ class Api::V1::DoctorsController < ApplicationController
     end
   end
 
+  def destroy
+    if @doctor.destroy
+      render json: { message: 'Doctor deleted successfully.' }
+    else
+      render json: { errors: @doctor.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_doctor_params
     params.require(:doctor).permit(:name, :bio, :specialization, :image_url)
+  end
+
+  def set_doctor
+    @doctor = Doctor.find(params[:id])
   end
 end
