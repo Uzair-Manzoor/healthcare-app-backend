@@ -51,4 +51,9 @@ end
 gem 'devise'
 
 # gem for enagling CORS that is secure data sharing between different server origins
+gem 'bcrypt'
 gem 'rack-cors'
+
+gem 'jwt'
+
+gem 'active_model_serializers', '~> 0.10.0'
