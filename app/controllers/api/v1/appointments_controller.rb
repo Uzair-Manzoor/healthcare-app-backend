@@ -1,5 +1,5 @@
 class Api::V1::AppointmentsController < ApplicationController
-  before_action :find_doctor, only: [:destroy, :create]
+  before_action :find_doctor, only: %i[destroy create]
 
   # Action for the appointments to a specific doctor for the user
   def index
