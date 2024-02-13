@@ -1,5 +1,5 @@
 class Api::V1::AppointmentsController < ApplicationController
-  before_action :find_doctor
+  before_action :find_doctor, only: [:destroy, :create]
 
   # Action for the appointments to a specific doctor for the user
   def index
@@ -32,6 +32,6 @@ class Api::V1::AppointmentsController < ApplicationController
   end
 
   def set_appointment_params
-    params.require(:appointment).permit(:date, :city, :reason)
+    params.require(:appointment).permit(:date, :city, :reason, :doctor_id)
   end
 end
