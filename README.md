@@ -43,7 +43,7 @@ Ruby on Rails, Visual Studio Code, WSL
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://i.pinimg.com/originals/81/5c/62/815c621a72a32738c7846ea45546dd07.gif)
+- [Live Demo Link](https://healthcare-ck31.onrender.com)
 
 ## Kanban Board <a name="kanban-board"></a>
 
