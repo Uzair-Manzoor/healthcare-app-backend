@@ -11,9 +11,12 @@ Rails.application.routes.draw do
 
   # Define api routes for versioning purposes
   namespace :api do
-    namespace :v1 do 
-      resources :doctors
-      resources :appointments
+    namespace :v1 do
+      resources :users
+      resources :doctors ,only: [:index,:show,:create, :destroy]  do
+      resources :appointments ,only: [:index,:create,:destroy]
+      end
+      resources :appointments, only:[:index]
     end
   end
 
