@@ -58,6 +58,9 @@ Rails.application.configure do
 
   # Highlight code that enqueued background job in logs.
   config.active_job.verbose_enqueue_logs = true
+  
+  # This line tells Rails not to compile assets in production, which is unnecessary for API-only applications.
+  config.assets.compile = false
 
 
   # Raises error for missing translations.
